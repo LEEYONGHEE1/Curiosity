@@ -129,8 +129,6 @@ class GraphFragment : Fragment() {
             val type = "True"
             val datasize = it.size
             getSpecificData(it, datasize, type)
-
-
         }
 
         viewModel.specificErrorData.observe(viewLifecycleOwner) {
@@ -197,7 +195,7 @@ class GraphFragment : Fragment() {
 
 
     }
-
+    //온도 달력차트 초기화
     private fun initLineChart2() {
 
         lineChart2.axisLeft.setDrawGridLines(false)
@@ -228,7 +226,8 @@ class GraphFragment : Fragment() {
         xAxis.axisLineColor
 
     }
-    // todo
+
+    //습도 달력차트 초기화
     private fun initLineChart3() {
 
         lineChart3.axisLeft.setDrawGridLines(false)
@@ -276,7 +275,7 @@ class GraphFragment : Fragment() {
         }
     }
 
-    // temp1
+    // 온도 달력 데이터 포멧
     inner class MyAxisFormatter2 : IndexAxisValueFormatter() {
         override fun getAxisLabel(value: Float, axis: AxisBase?): String {
             val index = value.toInt()
@@ -287,7 +286,7 @@ class GraphFragment : Fragment() {
             }
         }
     }
-    //humidity1
+    // 습도 달력 데이터 포멧
     inner class MyAxisFormatter3 : IndexAxisValueFormatter() {
         override fun getAxisLabel(value: Float, axis: AxisBase?): String{
             val index = value.toInt()
@@ -300,7 +299,7 @@ class GraphFragment : Fragment() {
     }
 
 
-    //temp
+    //실시간 온도 그래프 데이터 준비
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChart() {
         //now draw bar chart with dynamic data
@@ -327,7 +326,7 @@ class GraphFragment : Fragment() {
 
         lineChart.invalidate()
     }
-    //humidity
+    //실시간 습도 그래프 데이터 준비
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChartHumidity() {
         //now draw bar chart with dynamic data
@@ -354,6 +353,7 @@ class GraphFragment : Fragment() {
         lineChart.invalidate()
     }
 
+    //온도 달력 그래프 데이터 준비
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChart2() {
         //now draw bar chart with dynamic data
@@ -380,6 +380,7 @@ class GraphFragment : Fragment() {
         lineChart2.invalidate()
     }
 
+    //습도 달력 그래프 데이터 준비
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChart3() {
         //now draw bar chart with dynamic data
@@ -405,7 +406,7 @@ class GraphFragment : Fragment() {
         lineChart3.invalidate()
     }
 
-    // temp
+    // 실시간 온도 그래프 갱신
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChartRenew() {
         //now draw bar chart with dynamic data
@@ -432,7 +433,7 @@ class GraphFragment : Fragment() {
 
 
 
-    //humidity
+    // 실시간 습도 그래프 갱신
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChartRenewHumidity() {
         //now draw bar chart with dynamic data
@@ -456,7 +457,7 @@ class GraphFragment : Fragment() {
 
         lineChart.invalidate()
     }
-    // temp1
+    //온도 달력 그래프 갱신
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChartRenewTemperature() {
         //now draw bar chart with dynamic data
@@ -481,7 +482,7 @@ class GraphFragment : Fragment() {
         lineChart2.invalidate()
     }
 
-    // humidity1
+    //습도 달력 그래프 갱신
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setDataToLineChartRenewHumidity1() {
         //now draw bar chart with dynamic data
@@ -506,7 +507,7 @@ class GraphFragment : Fragment() {
         lineChart3.invalidate()
     }
 
-    //temp
+    //실시간 온도 그래프 초기화
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getSensorList(): ArrayList<sensor> {
         sensorList.add(sensor("", 0))
@@ -515,7 +516,7 @@ class GraphFragment : Fragment() {
         return sensorList
     }
 
-    // humidity
+    //실시간 습도 그래프 초기화
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getSensorList1(): ArrayList<sensor1> {
         sensorList1.add(sensor1("", 0))
@@ -523,14 +524,14 @@ class GraphFragment : Fragment() {
 
         return sensorList1
     }
-    // temp1
+    //온도 달력 그래프 초기화
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getSensorList2(): ArrayList<sensor> {
         sensorList2.add(sensor("", 0))
         sensorList2.add(sensor("", 0))
         return sensorList2
     }
-    // humidity1
+    //습도 달력 그래프 초기화
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getSensorList3(): ArrayList<sensor1> {
         sensorList3.add(sensor1("", 0))
@@ -661,6 +662,7 @@ class GraphFragment : Fragment() {
         }
     }
 
+    // 차트 초기화
     @RequiresApi(Build.VERSION_CODES.O)
     fun initChart() {
         initLineChart()
